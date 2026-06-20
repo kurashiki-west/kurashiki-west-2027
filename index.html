@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="倉敷市立西中学校 同窓会特設サイトです。開催日時、会場、参加回答フォーム、カウントダウンなどの情報を掲載しています。">
+  <title>倉敷市立西中学校 同窓会特設サイト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="frame-wrapper">
+    <!-- ヘッダー -->
+    <header>
+      <div class="school-tag">倉敷市立西中学校</div>
+      <div class="ornament-line">
+        <span>♦</span>
+      </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+      <!-- ヒーローセクション（メインビジュアル） -->
+      <section class="hero">
+        <div class="hero-image-container">
+          <img src="images/main_visual.png" alt="懐かしい校舎と桜の風景" class="hero-image">
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">あの頃を語り合う、<br>特別な一日。</h1>
+          <p class="hero-subtitle">倉敷市立西中学校 同窓会のご案内</p>
+        </div>
+      </section>
+
+      <!-- カウントダウンセクション -->
+      <section class="section">
+        <div class="countdown-container">
+          <div id="active-timer">
+            <h2 class="countdown-title">同窓会開催まで、あと</h2>
+            <div class="countdown-timer">
+              <div class="countdown-item">
+                <span id="days" class="countdown-num">00</span>
+                <span class="countdown-label">日</span>
+              </div>
+              <div class="countdown-item">
+                <span id="hours" class="countdown-num">00</span>
+                <span class="countdown-label">時間</span>
+              </div>
+              <div class="countdown-item">
+                <span id="minutes" class="countdown-num">00</span>
+                <span class="countdown-label">分</span>
+              </div>
+              <div class="countdown-item">
+                <span id="seconds" class="countdown-num">00</span>
+                <span class="countdown-label">秒</span>
+              </div>
+            </div>
+          </div>
+          <div id="finished-message" class="event-finished-msg">
+            同窓会は終了いたしました。ご参加いただき誠にありがとうございました！
+          </div>
+        </div>
+      </section>
+
+      <!-- 案内状（詳細情報）セクション -->
+      <section class="section" id="info">
+        <h2 class="section-title">開催概要</h2>
+        
+        <div class="letter-style">
+
+          <!-- 詳細テーブル -->
+          <table class="info-table">
+            <tr>
+              <th>開催日時</th>
+              <td>
+                <strong>2027年1月10日（日）</strong><br>
+                18:00 ～ 20:30 （受付開始 17:30～）
+              </td>
+            </tr>
+            <tr>
+              <th>会場</th>
+              <td>
+                <strong>ピュアリティまきび 3階</strong>
+                <a href="https://makibi.jp/" target="_blank" rel="noopener noreferrer" class="venue-link">公式サイト ↗</a><br>
+                〒700-0907 岡山県岡山市北区下石井２丁目６−４１<br>
+                <!-- 地図 -->
+                <div class="map-container">
+                  <iframe 
+                    src="https://maps.google.com/maps?q=岡山県岡山市北区下石井２丁目６−４１&output=embed&z=16" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                  </iframe>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>会費</th>
+              <td>
+                <strong>9,000円</strong><br>
+                <span style="font-size: 0.9rem; color: var(--text-muted);">※当日、現金にてお釣りのないよう丁度でお持ちください。</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- プログラムセクション -->
+      <section class="section" id="program">
+        <h2 class="section-title">当日のプログラム</h2>
+        <div class="letter-style" style="border-top: 5px solid var(--accent-green);">
+          <ul class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-time">17:30</span>
+              <span class="timeline-content">受付開始</span>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-time">18:00</span>
+              <span class="timeline-content">開会</span>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-time">18:05</span>
+              <span class="timeline-content">幹事代表挨拶</span>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-time">18:30</span>
+              <span class="timeline-content">乾杯・ご歓談</span>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-time">19:30</span>
+              <span class="timeline-content">ビンゴ大会</span>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-time">20:15</span>
+              <span class="timeline-content">写真撮影・閉会挨拶</span>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-time">20:30</span>
+              <span class="timeline-content">閉会（終了）</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 実行委員紹介セクション -->
+      <section class="section" id="organizers">
+        <h2 class="section-title">実行委員紹介</h2>
+        <div class="organizer-grid">
+          
+          <div class="organizer-card">
+            <span class="organizer-role">幹事代表</span>
+            <div class="organizer-name">横山 諒</div>
+          </div>
+
+          <div class="organizer-card">
+            <span class="organizer-role">会場担当</span>
+            <div class="organizer-name">友野 春香</div>
+          </div>
+
+          <div class="organizer-card">
+            <span class="organizer-role">会計担当</span>
+            <div class="organizer-name">藤井 翔哉 / 中村 泰陽</div>
+          </div>
+
+          <div class="organizer-card">
+            <span class="organizer-role">連絡担当</span>
+            <div class="organizer-name">光元 文太</div>
+          </div>
+
+          <div class="organizer-card">
+            <span class="organizer-role">パンフレット制作・受付</span>
+            <div class="organizer-name">柴田 光真</div>
+          </div>
+
+          <div class="organizer-card">
+            <span class="organizer-role">司会進行</span>
+            <div class="organizer-name undecided">（調整中）</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- お願いと注意事項セクション -->
+      <section class="section" id="notes">
+        <h2 class="section-title">お願いと注意事項</h2>
+        <div class="letter-style" style="border-top: 5px solid var(--accent-color);">
+          <div class="note-box">
+            <p>
+              本同窓会にあたり、当日キャンセル、遅刻はできるだけお控えいただけると幸いです。<br>
+              用事で来れなくなった方は当日の1週間前にご連絡下さい。
+            </p>
+            <p>
+              役員に当たっている方にも楽しく参加していただき、受付や進行を円滑に行うために当日は時間に余裕を持ってお越しください。
+            </p>
+            <p>
+              また、当日もしくは直前にキャンセルした場合、会場・料理等の手配が完了しているためキャンセル料が発生してしまいます。<br>
+              やむを得ない場合を除きご本人様にご連絡しキャンセル料を請求しますのでご了承ください。
+            </p>
+            <p>
+              連絡担当につきましては光元文太が役員ですので当日もしくは直前の際はLINEを追加しご連絡ください。
+            </p>
+
+
+            <p style="font-weight: bold; text-align: center; color: var(--accent-color); margin-top: 25px; font-size: 1.1rem; line-height: 1.6;">
+              トラブルなくその場にいる全員が楽しく良い思い出になるようご協力お願いいたします。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+      <p class="footer-school">倉敷市立西中学校 同窓会</p>
+      <p>&copy; 2026 倉敷市立西中学校 同窓会実行委員会. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script src="java.js"></script>
+</body>
+</html>

@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* --- Design System Variables (桜と新緑の水彩画に調和するパレット) --- */
+:root {
+  --bg-color: #faf4f3;          /* ほんのり桜色がかった暖かみのある白 */
+  --paper-color: #ffffff;       /* カード背景 */
+  --primary-color: #4a3836;     /* 赤みを含んだ上品なダークブラウン（テキスト用） */
+  --accent-color: #c98a93;      /* 桜をイメージした上品な和風の薄紅・くすみピンク */
+  --accent-green: #5c7562;      /* 新緑をイメージした優しいオリーブグリーン */
+  --text-color: #382c2a;        /* メイン文字色 */
+  --text-muted: #7d6b69;        /* 補足文字色 */
+  --border-color: #ebdcdb;      /* 桜色のニュアンスを持つ境界線色 */
+  --shadow-color: rgba(196, 122, 133, 0.05);
+  --font-serif: 'Noto Serif JP', serif;
+  --font-display: 'Playfair Display', serif;
+}
+
+/* --- Reset & Base Styles --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  letter-spacing: 0.07em;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+  /* 水彩画の滲み・粒子感をうっすらと表現する背景テクスチャ */
+  background-image: 
+    radial-gradient(rgba(196, 122, 133, 0.03) 1px, transparent 0),
+    radial-gradient(rgba(92, 117, 98, 0.02) 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+/* ページ全体の装飾枠 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* アナログ感のある角丸二重線フレーム */
+.frame-wrapper {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Common Components --- */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+  border-bottom: 1px dashed var(--border-color);
+  position: relative;
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '🌸';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* レトロな飾り罫線 */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.ornament-line::before, .ornament-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: radial-gradient(circle, var(--border-color) 0%, transparent 100%);
+  max-width: 150px;
+}
+
+.ornament-line span {
+  margin: 0 15px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+/* レトロなボタン */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 35px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--paper-color);
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0px var(--primary-color);
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.btn:hover {
+  background-color: var(--paper-color);
+  color: var(--accent-color);
+  box-shadow: 1px 1px 0px var(--primary-color);
+  top: 2px;
+  left: 2px;
+}
+
+.btn-secondary {
+  background-color: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+.btn-secondary:hover {
+  color: var(--accent-green);
+  background-color: var(--paper-color);
+}
+
+/* --- Header & Hero Section --- */
+header {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.school-tag {
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+  display: inline-block;
+  padding: 4px 18px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero-image-container {
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 12px solid var(--paper-color);
+  box-shadow: 0 10px 25px var(--shadow-color);
+  position: relative;
+}
+
+/* 水彩画の淡い光と馴染むソフトなヴィネット効果 */
+.hero-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(199, 138, 147, 0.15) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(5%) contrast(98%);
+  transition: transform 8s ease;
+}
+
+.hero-image-container:hover .hero-image {
+  transform: scale(1.03);
+}
+
+.hero-content {
+  margin-top: -30px;
+  position: relative;
+  z-index: 10;
+  background: var(--paper-color);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  border-radius: 4px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  letter-spacing: 0.12em;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* --- Countdown Section --- */
+.countdown-container {
+  background-color: var(--paper-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  position: relative;
+}
+
+.countdown-container::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px dashed var(--border-color);
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+.countdown-title {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.countdown-title i {
+  color: var(--accent-color);
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.countdown-item {
+  min-width: 70px;
+}
+
+.countdown-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: block;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.05);
+  line-height: 1.2;
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+  display: block;
+}
+
+.event-finished-msg {
+  font-size: 1.5rem;
+  color: var(--accent-green);
+  font-weight: bold;
+  display: none;
+  padding: 10px;
+}
+
+/* --- Info Section (Letter Style) --- */
+.letter-style {
+  background: var(--paper-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 50px 40px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 水彩画の桜色をアクセントにした便箋風ボーダー */
+.letter-style::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--accent-color);
+}
+
+.greeting-text {
+  font-size: 1.05rem;
+  line-height: 2;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+.greeting-signature {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+/* 情報テーブル */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.info-table tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-table tr:last-child {
+  border-bottom: none;
+}
+
+.info-table th, .info-table td {
+  padding: 18px 10px;
+  text-align: left;
+}
+
+.info-table th {
+  font-weight: 700;
+  color: var(--accent-green);
+  width: 25%;
+  vertical-align: top;
+}
+
+.info-table td {
+  color: var(--text-color);
+}
+
+.venue-link {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+  background-color: var(--bg-color);
+  transition: all 0.2s ease;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.venue-link:hover {
+  background-color: var(--accent-color);
+  color: var(--paper-color);
+  border-color: var(--accent-color);
+}
+
+/* タイムライン（プログラム用）スタイル */
+.timeline {
+  position: relative;
+  max-width: 500px;
+  margin: 30px auto 10px;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+  padding-left: 60px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  border: 2px solid var(--paper-color);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  transform: scale(1.3);
+  background-color: var(--accent-green);
+}
+
+.timeline-time {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+
+.timeline-content {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+
+/* Google Map Container */
+.map-container {
+  margin-top: 20px;
+  border: 4px solid var(--paper-color);
+  box-shadow: 0 4px 10px var(--shadow-color);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- Organizer Section --- */
+.organizer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.organizer-card {
+  background: var(--paper-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.organizer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(199, 138, 147, 0.12);
+}
+
+.organizer-role {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  display: inline-block;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+.organizer-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.organizer-name.undecided {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* --- Google Form Section --- */
+.form-info-box {
+  background-color: #f6eded;    /* 桜色のトーンに合わせた非常に淡いピンクグレー */
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-info-box p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-info-box span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.form-action-area {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.google-form-embed {
+  margin-top: 30px;
+  width: 100%;
+  height: 600px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+}
+
+/* --- お願い・注意事項セクション --- */
+.note-box p {
+  margin-bottom: 1.5rem;
+}
+
+.note-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 60px 0 40px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin-bottom: 5px;
+}
+
+.footer-school {
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.1em;
+}
+
+/* --- 桜の舞い散るアニメーション用スタイル --- */
+.sakura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;                 /* コンテンツより背面、枠線より背面 */
+  overflow: hidden;
+}
+
+.sakura-petal {
+  position: absolute;
+  background-color: #ffe6e8;
+  border-radius: 150% 0 150% 150%; /* 桜の花びらの形状を表現 */
+  opacity: 0.8;
+  transform-origin: left top;
+  box-shadow: 0 0 4px rgba(255, 192, 203, 0.2);
+  animation: sakura-fall linear infinite;
+  pointer-events: none;
+}
+
+/* 花びらがひらひらと降る動き */
+@keyframes sakura-fall {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg) scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    top: 110%;
+    transform: translateX(100px) rotate(360deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  body::before {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+  
+  .frame-wrapper {
+    margin: 15px auto;
+    padding: 10px;
+  }
+  
+  .section {
+    padding: 50px 0;
+  }
+  
+  .hero-image-container {
+    border-width: 6px;
+  }
+  
+  .hero-content {
+    margin-top: -15px;
+    padding: 20px 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .letter-style {
+    padding: 30px 20px;
+  }
+  
+  .info-table th, .info-table td {
+    display: block;
+    width: 100% !important;
+    padding: 8px 0;
+  }
+  
+  .info-table th {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .info-table tr {
+    padding-bottom: 10px;
+    display: block;
+  }
+  
+  .countdown-num {
+    font-size: 1.8rem;
+  }
+  
+  .countdown-item {
+    min-width: 50px;
+  }
+}
